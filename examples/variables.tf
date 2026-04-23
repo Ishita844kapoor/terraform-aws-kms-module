@@ -1,0 +1,62 @@
+variable "region" {
+  description = "AWS region for the example"
+  type        = string
+  default     = "us-east-1"
+}
+
+variable "description" {
+  type    = string
+  default = "Example KMS key created from examples folder"
+}
+
+variable "key_usage" {
+  type    = string
+  default = "ENCRYPT_DECRYPT"
+}
+
+variable "custom_key_store_id" {
+  type    = string
+  default = null
+}
+
+variable "customer_master_key_spec" {
+  type    = string
+  default = "SYMMETRIC_DEFAULT"
+}
+
+variable "deletion_window_in_days" {
+  type    = number
+  default = 30
+}
+
+variable "is_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "enable_key_rotation" {
+  type    = bool
+  default = true
+}
+
+variable "rotation_period_in_days" {
+  type    = number
+  default = null
+}
+
+variable "multi_region" {
+  type    = bool
+  default = true
+}
+
+variable "tags" {
+  type = map(string)
+  default = {
+    Name = "anantacloud-key"
+  }
+}
+
+variable "xks_key_id" {
+  type    = string
+  default = null
+}
