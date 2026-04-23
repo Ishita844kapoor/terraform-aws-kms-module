@@ -1,0 +1,43 @@
+name: Terraform CI/CD
+
+on:
+  workflow_dispatch:   
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: Terraform Apply and Destroy
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: examples
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.12.2
+
+      # 3. Terraform Init
+      - name: Terraform Init
+        run: terraform init
+
+      # 4. Terraform Validate
+      - name: Terraform Validate
+        run: terraform validate
+
+      # 5. Terraform Plan
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+
+      # 6. Terraform Apply
+      - name: Terraform Apply
+        run: terraform apply -auto-approve tfplan
