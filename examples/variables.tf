@@ -60,3 +60,32 @@ variable "xks_key_id" {
   type    = string
   default = null
 }
+
+## Key-Policy ##
+variable "policy" {
+  description = "KMS key policy JSON"
+  type        = string
+  default     = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EnableRootPermissions",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::292511304870:role/github-runner-ec2-iam-role"
+      },
+      "Action": "kms:*",
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+}
+
+variable "bypass_policy_lockout_safety_check" {
+  description = "Whether to bypass KMS policy lockout safety check"
+  type        = bool
+  default     = false
+}
+
