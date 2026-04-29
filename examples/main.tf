@@ -15,5 +15,4 @@ module "kms" {
   tags                               = var.tags
   xks_key_id                         = var.xks_key_id
   alias_name                         = var.alias_name
-  policy                             = var.policy
 }
