@@ -1,15 +1,22 @@
 output "key_id" {
   description = "ID of the created KMS key"
-  value       = module.key.key_id
+  value       = module.kms.key_id
 }
 
 output "arn" {
   description = "ARN of the created KMS key"
-  value       = module.key.arn
+  value       = module.kms.arn
 }
 
 output "tags" {
   description = "ARN of the created KMS key"
-  value       = module.key.tags_all
+  value       = module.kms.tags_all
 }
+
+output "kms_alias_arn" {
+  description = "ARN of the created KMS alias"
+  value       = module.kms.kms_alias_arn
+}
+
+
 
