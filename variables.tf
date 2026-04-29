@@ -4,6 +4,12 @@ variable "region" {
   default     = "us-east-1"
 }
 
+variable "replica_region" {
+  description = "AWS region for the replica external KMS key"
+  type        = string
+  default     = "us-east-2"
+}
+
 variable "description" {
   type    = string
   default = "Example KMS key created from examples folder"
