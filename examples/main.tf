@@ -14,4 +14,6 @@ module "key" {
   multi_region                       = var.multi_region
   tags                               = var.tags
   xks_key_id                         = var.xks_key_id
+  alias_name                         = var.alias_name
+  policy                             = var.policy
 }
