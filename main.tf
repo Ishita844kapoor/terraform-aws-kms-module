@@ -15,3 +15,20 @@ module "key" {
   tags                               = var.tags
   xks_key_id                         = var.xks_key_id
 }
+
+module "alias" {
+  source = "./modules/resources/alias"
+
+  name          = var.alias_name
+  target_key_id = module.key.arn
+}
+
+
+module "key_policy" {
+  source = "./modules/resources/key-policy"
+
+  key_id                             = module.key.arn
+  policy                             = var.policy
+  bypass_policy_lockout_safety_check = var.bypass_policy_lockout_safety_check
+}
+
