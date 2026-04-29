@@ -1,4 +1,4 @@
-module "key" {
+module "kms" {
   source = "../.."
 
   description                        = var.description
