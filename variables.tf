@@ -89,3 +89,12 @@ variable "bypass_policy_lockout_safety_check" {
   default     = false
 }
 
+
+## alias ##
+
+variable "alias_name" {
+  description = "Name of the KMS alias"
+  type        = string
+  default     = "alias/anantacloud-alias"
+}
+
