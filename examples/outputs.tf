@@ -10,6 +10,6 @@ output "arn" {
 
 output "tags" {
   description = "ARN of the created KMS key"
-  value       = module.kms.tags_all
+  value       = module.kms.tags
 }
 
