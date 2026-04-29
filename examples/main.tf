@@ -1,5 +1,5 @@
 module "kms" {
-  source = ".."
+  source = "./.."
 
   description                        = var.description
   key_usage                          = var.key_usage
